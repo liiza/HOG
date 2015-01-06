@@ -7,7 +7,7 @@ from math import sqrt
 
 
 import os
-#UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+"/tmp"
+UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+"/tmp"
 MAX = sqrt(pow(255, 2) + pow(255, 2))
 
 app = Flask(__name__)
@@ -51,7 +51,7 @@ def hog():
 	    print G,
 	       
 	print "\n"
-    #image_copy.save("image_HOG.png")
+    image_copy.save("image_HOG.png")
 	    
     print "ready"
     return render_template("index.html")
