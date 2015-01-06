@@ -5,8 +5,9 @@ from werkzeug import secure_filename, FileStorage
 from PIL import Image
 from math import sqrt
 
+
 import os
-UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+"/tmp"
+#UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+"/tmp"
 MAX = sqrt(pow(255, 2) + pow(255, 2))
 
 app = Flask(__name__)
