@@ -1,16 +1,19 @@
 from flask import Flask
-from flask import render_template, request, make_response
+from flask import render_template, request, make_response, send_file
 from werkzeug import secure_filename, FileStorage
 
 from PIL import Image
 from math import sqrt
 
+import StringIO
 
 import os
 UPLOAD_FOLDER = os.path.dirname(os.path.abspath(__file__))+"/tmp"
 MAX = sqrt(pow(255, 2) + pow(255, 2))
 
 app = Flask(__name__)
+
+    
 
 @app.route("/")
 def index():
@@ -48,13 +51,16 @@ def hog():
 	       
 	    G = int(G/MAX*255)
 	    data_copy[x, y] = (G, 255)
-	    print G,
+	    #print G,
 	       
-	print "\n"
-    image_copy.save("image_HOG.png")
+	#print "\n"
+    #image_copy.save("HOG_.png")
 	    
     print "ready"
-    return render_template("index.html")
+    strIO = StringIO.StringIO()
+    image_copy.save(strIO, 'PNG')
+    strIO.seek(0)
+    return send_file(strIO, attachment_filename="HOG.png", as_attachment=True)
 
 if __name__ == "__main__":
     app.run()
