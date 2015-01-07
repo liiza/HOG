@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>HOG converter</title>
+<meta name="viewport" content="width-device-width, initial-scale=1"> 
 <script>
 /*function helloWorld() {
     alert("hello world");
@@ -23,19 +24,27 @@ $(document).ready(function(){
 });*/
 
 </script>
-
+<style>
+#container{
+    width: 80%;
+    margin:auto;
+}
+</style>
 
 </head>
 
 <body>
+<div id="container">
 <h1>HOG-converter</h1>
 <p>Upload a image to get the HOG-version of it. <br/>
 Just for fun. Read more <a href="http://en.wikipedia.org/wiki/Histogram_of_oriented_gradients" target="_blank">here.</a>  </p>
+<img src="http://www.niksula.hut.fi/~lsailara/uimalasit_hog.jpg" width="250px"></img><br/>
+<img src="http://www.niksula.hut.fi/~lsailara/uimalasit.jpg" width="250px"></img><br/>
 <form action="/convert_file" enctype="multipart/form-data" method="post">
 Give file to convert: <br/> 
 <input type="file" name="file"></input><br/> 
 <input type="submit" value="Send"></input>
 </form>
-
+</div>
 </body>
 </html>
